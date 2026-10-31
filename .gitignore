@@ -1,2 +1,3 @@
 # 忽略 progress 文件
 nvim_config_progress
+lazy-lock.json
