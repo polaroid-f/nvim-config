@@ -143,6 +143,11 @@ vim.keymap.set("n", ">", ">>", { desc = "Deindent" })
 vim.keymap.set("n", "bh", ":bp<cr>", { desc = "" })
 vim.keymap.set("n", "bl", ":bn<cr>", { desc = "" })
 
+-- 禁用 perl
+vim.g.loaded_perl_provider = 0
+-- 禁用 ruby
+vim.g.loaded_ruby_provider = 0
+
 
 -- 暂时用不到的配置
 -- 关闭位置列表（location list）和快速修复列表窗口（quickfix list）
