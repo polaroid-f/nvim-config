@@ -1,3 +1,6 @@
+-- Eviline config for lualine
+-- Author: shadmansaleh
+-- Credit: glepnir
 
 -- Color table for highlights
 -- stylua: ignore
