@@ -30,3 +30,7 @@ vim.opt.clipboard = "unnamedplus"
 vim.opt.ignorecase = true -- 搜索忽略大小写
 vim.opt.smartcase = true -- 如果包含大写字符，则区分大小写
 vim.opt.incsearch = true -- 增量搜索
+
+-- 开启鼠标支持
+vim.opt.mouse = "a"
+vim.opt.mousemoveevent = true

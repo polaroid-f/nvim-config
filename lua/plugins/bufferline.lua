@@ -2,6 +2,7 @@
 -- 2. <leader>bo 删除其他缓冲区 , <leader>bd 删除当前缓冲区
 -- 3. <leader>bs 选择缓冲区
 -- 4. <leader>bp 固定缓冲区
+-- 5. group 功能，主要是根据 matcher 函数自动分组
 
 return{
 	{
@@ -38,7 +39,7 @@ return{
 				max_name_length = 25,
 
 				indicator = {
-					style = "none", -- 下划线，可选 "underline", "none"
+					style = "underline", -- 下划线，可选 "underline", "none"
 				},
 				left_trunc_marker = "", -- 左侧截断标记，Nerd Font
 				right_trunc_marker = "", -- 右侧截断标记，Nerd Font
@@ -64,7 +65,39 @@ return{
 						padding = 1,
 					},
 				},
+				hover = {
+        		    enabled = true,
+        		    delay = 100,
+        		    reveal = {'close'}
+        		},
+				groups = {
+					options = {
+						toggle_hidden_on_enter = true -- when you re-enter a hidden group this options re-opens that group so the buffer is visible
+					},
+					items = {
+						{
+							name = "Tests", -- Mandatory
+							highlight = {underline = true, sp = "blue"}, -- Optional
+							priority = 2, -- determines where it will appear relative to other groups (Optional)
+							icon = " ", -- Optional
+							matcher = function(buf) -- Mandatory
+								local name = buf.name or ""
+								return name:match("_test") or name:match("_spec")
+							end,
+						},
+						{
+							name = "Docs",
+							highlight = {undercurl = true, sp = "green"},
+							auto_close = false,  -- whether or not close this group if it doesn't contain the current buffer
+							matcher = function(buf)
+								local name = buf.name or ""
+								return name:match('%.md$') or name:match('%.txt$')
+							end,
+						},
+					},
+				},
 			},
+			
 		},
 
 		keys = {
@@ -75,6 +108,8 @@ return{
 			{ "<leader>bs", "<cmd>BufferLinePick<cr>", desc = "选择缓冲区" }, -- select
 			{ "<leader>bo", "<cmd>BufferLineCloseOthers<cr>", desc = "删除其他缓冲区" },
 			{ "<leader>bp", "<cmd>BufferLineTogglePin<cr>", desc = "固定或取消固定" },
+			{ "<leader>bn", "<cmd>BufferLineMoveNext<cr>", desc = "将窗口向右移动" },
+			{ "<leader>bl", "<cmd>BufferLineMovePrev<cr>", desc = "将窗口向左移动" },
 			{
 				"<leader>bP",
 				"<cmd>BufferLineGroupClose ungrouped<cr>",

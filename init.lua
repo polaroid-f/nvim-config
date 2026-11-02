@@ -7,8 +7,8 @@ vim.g.loaded_ruby_provider = 0
 -- 加载 lazy.nvim
 require("config.basic")
 require("config.autocmd")
-require("config.lazy")
 require("config.keymap")
+require("config.lazy")
 
 -- 暂时用不到的配置
 -- 关闭位置列表（location list）和快速修复列表窗口（quickfix list）
