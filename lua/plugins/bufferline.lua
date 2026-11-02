@@ -3,6 +3,7 @@
 -- 3. <leader>bs 选择缓冲区
 -- 4. <leader>bp 固定缓冲区
 -- 5. group 功能，主要是根据 matcher 函数自动分组
+--    如果想要自定义 group，直接在 group 里面写分组规则即可
 
 return{
 	{
