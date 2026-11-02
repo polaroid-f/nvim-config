@@ -38,7 +38,7 @@ return {
 			-- 设置文件树的位置和宽度
 			window = {
 				position = "left",
-				width = 27,
+				width = 25,
 			},
 
 			-- 设置文件显示
