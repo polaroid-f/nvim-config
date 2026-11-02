@@ -1,5 +1,6 @@
 -- 快捷键
 -- 1. enter 打开文件，或展开收起文件夹，打开的文件是以buffer形式打开，需要 :ls :bnext :bprevious 等命令切换
+--	  enter 保留光标在 neotree 中，o 光标在新打开的文件中
 -- 2. backspace 将文件树根目录切换到上一级
 -- 3. C 收起光标所在的文件夹节点
 -- 4. a 创建新文件
@@ -16,6 +17,7 @@
    -- 14 . 设该文件夹为 根目录
    -- 15 b 修改当前文件文件名，但只修改名不改类型，r 是全部修改
    -- 16 一系列 oc od ot og(git status) om(modify) os(size) 等 都是 order by 
+   -- 17. P 预览文件内容
 
 
 return {
@@ -55,7 +57,31 @@ return {
 				follow_current_file = {
 					enabled = true, -- 自动展开并选中当前文件
 				},
+
+				-- 自定义文件打开
+				commands = {
+				        open_keepfocus = function(state)
+				            -- 记录当前 Neo-tree 窗口
+				            local tree_win = vim.api.nvim_get_current_win()
+				
+				            -- 执行默认打开操作
+				            state.commands.open(state)
+				
+				            -- 将焦点重新切换回 Neo-tree
+				            if vim.api.nvim_win_is_valid(tree_win) then
+				                vim.api.nvim_set_current_win(tree_win)
+				            end
+				        end,
+				},
+
+				window = {
+    			    mappings = {
+    			        ["<CR>"] = "open_keepfocus",
+    			        ["o"] = "open",
+    			    },
+    			},
 			},
+
 			default_component_configs = {
 				indent = {
 					with_expanders = true, -- if nil and file nesting is enabled, will enable expanders
