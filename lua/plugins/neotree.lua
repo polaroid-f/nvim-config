@@ -76,7 +76,7 @@ return {
 
 				window = {
     			    mappings = {
-    			        ["<CR>"] = "open_keepfocus",
+    			        ["<cr>"] = "open_keepfocus",
     			        ["o"] = "open",
     			    },
     			},
