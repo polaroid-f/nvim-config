@@ -45,6 +45,3 @@ vim.keymap.set("n", "<leader><cr>", ":nohlsearch<cr>", { desc = "No highlight se
 vim.keymap.set("n", "<", "<<", { desc = "Indent" })
 vim.keymap.set("n", ">", ">>", { desc = "Deindent" })
 
--- buffer switcher
-vim.keymap.set("n", "bh", ":bp<cr>", { desc = "" })
-vim.keymap.set("n", "bl", ":bn<cr>", { desc = "" })
