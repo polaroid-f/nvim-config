@@ -32,10 +32,10 @@ vim.keymap.set("v", "<A-k>", ":m '<-2<CR>gv=gv", { silent = true, desc = "Move s
 vim.keymap.set("n", "<leader>sv", "<C-w>v", { desc = "Split window vertically" })
 vim.keymap.set("n", "<leader>sh", "<C-w>s", { desc = "Split window horizontally" })
 -- 还有可以调整窗口大小的快捷键
-vim.keymap.set("n", "<up>", ":res +5<cr>", { desc = "" })
-vim.keymap.set("n", "<down>", ":res -5<cr>", { desc = "" })
-vim.keymap.set("n", "<left>", ":vertical resize+5<cr>", { desc = "" })
-vim.keymap.set("n", "<right>", ":vertical resize-5<cr>", { desc = "" })
+vim.keymap.set("n", "<up>", ":res +5<cr>", { desc = "调整窗口大小" })
+vim.keymap.set("n", "<down>", ":res -5<cr>", { desc = "调整窗口大小" })
+vim.keymap.set("n", "<left>", ":vertical resize+5<cr>", { desc = "调整窗口大小" })
+vim.keymap.set("n", "<right>", ":vertical resize-5<cr>", { desc = "调整窗口大小" })
 
 
 -- no highlight search
